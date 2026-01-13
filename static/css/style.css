@@ -1,0 +1,83 @@
+/* Custom styles for Fired Calendar */
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.calendar-day {
+    min-height: 80px;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+}
+
+.btn-outline-secondary:disabled {
+    opacity: 0.5;
+}
+
+.calendar-day-checked {
+    background-color: #d4edda !important; /* Green for checked days */
+    color: #155724 !important;
+}
+
+.calendar-day-future {
+    background-color: #ffffff !important; /* White for future days */
+    color: #000000 !important;
+}
+
+.calendar-day-weekend {
+    background-color: #e9ecef !important; /* Gray for weekends */
+    color: #6c757d !important;
+}
+
+.calendar-day-past-unchecked {
+    background-color: #f8d7da !important; /* Light red for past unchecked days */
+    color: #721c24 !important;
+}
+
+/* Calendar day button styles */
+.calendar-day-btn-checked {
+    background-color: #198754 !important; /* Bootstrap success color */
+    border-color: #198754 !important;
+    color: white !important;
+}
+
+.calendar-day-btn-unchecked {
+    background-color: transparent;
+    border-color: #dee2e6;
+    color: #212529;
+}
+
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+.bg-success {
+    background-color: #198754 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+    color: #000 !important;
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+    
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+}
