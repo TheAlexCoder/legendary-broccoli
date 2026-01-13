@@ -42,76 +42,131 @@ function appData() {
         showSettings: false,
         showRecoveryPhrase: false,
         currentLang: 'en',
-        translations: {
-            en: {
-                hello: 'Hello',
-                logout: 'Logout',
-                notLoggedIn: 'Not logged in',
-                register: 'Register',
-                login: 'Login',
-                username: 'Username',
-                recoveryPhrase: 'Recovery Phrase',
-                enterRecoveryPhrase: 'Enter your 6-word recovery phrase',
-                totalWorkingDays: 'Total Working Days',
-                daysMarked: 'Days Marked',
-                daysRemaining: 'Days Remaining',
-                calendar: 'Calendar',
-                settings: 'Settings',
-                accountSettings: 'Account Settings',
-                firedDate: 'Fired Date',
-                showRecovery: 'Show Recovery Phrase',
-                deleteAccount: 'Delete Account',
-                markToday: 'Mark Today',
-                sunday: 'Sun',
-                monday: 'Mon',
-                tuesday: 'Tue',
-                wednesday: 'Wed',
-                thursday: 'Thu',
-                friday: 'Fri',
-                saturday: 'Sat',
-                copy: 'Copy',
-                close: 'Close',
-                copyToClipboard: 'Copy to Clipboard',
-                saveThis: 'save this!',
-                recoverySaveMessage: 'Please save this recovery phrase in a secure place:',
-                recoveryWarning: 'This phrase is the only way to recover your account. Keep it secret and secure!',
-                firedDateNotSet: 'Please set your fired date in settings.',
-                recoveryPhraseModalTitle: 'Your Recovery Phrase'
-            },
-            ru: {
-                hello: 'Привет',
-                logout: 'Выход',
-                notLoggedIn: 'Не вошли',
-                register: 'Регистрация',
-                login: 'Вход',
-                username: 'Имя пользователя',
-                recoveryPhrase: 'Фраза восстановления',
-                enterRecoveryPhrase: 'Введите вашу 6-словную фразу восстановления',
-                totalWorkingDays: 'Всего рабочих дней',
-                daysMarked: 'Отмеченных дней',
-                daysRemaining: 'Оставшихся дней',
-                calendar: 'Календарь',
-                settings: 'Настройки',
-                accountSettings: 'Настройки аккаунта',
-                firedDate: 'Дата увольнения',
-                showRecovery: 'Показать фразу восстановления',
-                deleteAccount: 'Удалить аккаунт',
-                markToday: 'Отметить сегодня',
-                sunday: 'Вс',
-                monday: 'Пн',
-                tuesday: 'Вт',
-                wednesday: 'Ср',
-                thursday: 'Чт',
-                friday: 'Пт',
-                saturday: 'Сб',
-                copy: 'Копировать',
-                close: 'Закрыть',
-                copyToClipboard: 'Копировать в буфер обмена',
-                saveThis: 'сохраните это!',
-                recoverySaveMessage: 'Пожалуйста, сохраните эту фразу восстановления в безопасном месте:',
-                recoveryWarning: 'Эта фраза является единственным способом восстановить ваш аккаунт. Держите её в секрете и в безопасности!',
-                firedDateNotSet: 'Пожалуйста, установите дату увольнения в настройках.',
-                recoveryPhraseModalTitle: 'Ваша фраза восстановления'
+        translations: {},
+        
+        async loadTranslations() {
+            try {
+                if (this.currentLang === 'en') {
+                    if (typeof enTranslations !== 'undefined') {
+                        this.translations = enTranslations;
+                    } else {
+                        // Fallback if script is not loaded
+                        this.translations = {
+                            hello: 'Hello',
+                            logout: 'Logout',
+                            notLoggedIn: 'Not logged in',
+                            register: 'Register',
+                            login: 'Login',
+                            username: 'Username',
+                            recoveryPhrase: 'Recovery Phrase',
+                            enterRecoveryPhrase: 'Enter your 6-word recovery phrase',
+                            totalWorkingDays: 'Total Working Days',
+                            daysMarked: 'Days Marked',
+                            daysRemaining: 'Days Remaining',
+                            calendar: 'Calendar',
+                            settings: 'Settings',
+                            accountSettings: 'Account Settings',
+                            firedDate: 'Fired Date',
+                            showRecovery: 'Show Recovery Phrase',
+                            deleteAccount: 'Delete Account',
+                            markToday: 'Mark Today',
+                            sunday: 'Sun',
+                            monday: 'Mon',
+                            tuesday: 'Tue',
+                            wednesday: 'Wed',
+                            thursday: 'Thu',
+                            friday: 'Fri',
+                            saturday: 'Sat',
+                            copy: 'Copy',
+                            close: 'Close',
+                            copyToClipboard: 'Copy to Clipboard',
+                            saveThis: 'save this!',
+                            recoverySaveMessage: 'Please save this recovery phrase in a secure place:',
+                            recoveryWarning: 'This phrase is the only way to recover your account. Keep it secret and secure!',
+                            firedDateNotSet: 'Please set your fired date in settings.',
+                            recoveryPhraseModalTitle: 'Your Recovery Phrase'
+                        };
+                    }
+                } else {
+                    if (typeof ruTranslations !== 'undefined') {
+                        this.translations = ruTranslations;
+                    } else {
+                        // Fallback if script is not loaded
+                        this.translations = {
+                            hello: 'Привет',
+                            logout: 'Выход',
+                            notLoggedIn: 'Не вошли',
+                            register: 'Регистрация',
+                            login: 'Вход',
+                            username: 'Имя пользователя',
+                            recoveryPhrase: 'Фраза восстановления',
+                            enterRecoveryPhrase: 'Введите вашу 6-словную фразу восстановления',
+                            totalWorkingDays: 'Всего рабочих дней',
+                            daysMarked: 'Отмеченных дней',
+                            daysRemaining: 'Оставшихся дней',
+                            calendar: 'Календарь',
+                            settings: 'Настройки',
+                            accountSettings: 'Настройки аккаунта',
+                            firedDate: 'Дата увольнения',
+                            showRecovery: 'Показать фразу восстановления',
+                            deleteAccount: 'Удалить аккаунт',
+                            markToday: 'Отметить сегодня',
+                            sunday: 'Вс',
+                            monday: 'Пн',
+                            tuesday: 'Вт',
+                            wednesday: 'Ср',
+                            thursday: 'Чт',
+                            friday: 'Пт',
+                            saturday: 'Сб',
+                            copy: 'Копировать',
+                            close: 'Закрыть',
+                            copyToClipboard: 'Копировать в буфер обмена',
+                            saveThis: 'сохраните это!',
+                            recoverySaveMessage: 'Пожалуйста, сохраните эту фразу восстановления в безопасном месте:',
+                            recoveryWarning: 'Эта фраза является единственным способом восстановить ваш аккаунт. Держите её в секрете и в безопасности!',
+                            firedDateNotSet: 'Пожалуйста, установите дату увольнения в настройках.',
+                            recoveryPhraseModalTitle: 'Ваша фраза восстановления'
+                        };
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading translations:', error);
+                // Fallback to English if there's an error
+                this.translations = {
+                    hello: 'Hello',
+                    logout: 'Logout',
+                    notLoggedIn: 'Not logged in',
+                    register: 'Register',
+                    login: 'Login',
+                    username: 'Username',
+                    recoveryPhrase: 'Recovery Phrase',
+                    enterRecoveryPhrase: 'Enter your 6-word recovery phrase',
+                    totalWorkingDays: 'Total Working Days',
+                    daysMarked: 'Days Marked',
+                    daysRemaining: 'Days Remaining',
+                    calendar: 'Calendar',
+                    settings: 'Settings',
+                    accountSettings: 'Account Settings',
+                    firedDate: 'Fired Date',
+                    showRecovery: 'Show Recovery Phrase',
+                    deleteAccount: 'Delete Account',
+                    markToday: 'Mark Today',
+                    sunday: 'Sun',
+                    monday: 'Mon',
+                    tuesday: 'Tue',
+                    wednesday: 'Wed',
+                    thursday: 'Thu',
+                    friday: 'Fri',
+                    saturday: 'Sat',
+                    copy: 'Copy',
+                    close: 'Close',
+                    copyToClipboard: 'Copy to Clipboard',
+                    saveThis: 'save this!',
+                    recoverySaveMessage: 'Please save this recovery phrase in a secure place:',
+                    recoveryWarning: 'This phrase is the only way to recover your account. Keep it secret and secure!',
+                    firedDateNotSet: 'Please set your fired date in settings.',
+                    recoveryPhraseModalTitle: 'Your Recovery Phrase'
+                };
             }
         },
         
@@ -130,6 +185,9 @@ function appData() {
                 }
                 localStorage.setItem('lang', this.currentLang);
             }
+            
+            // Load translations based on current language
+            this.loadTranslations();
             
             // Check if user is already logged in by making a request to get profile
             this.checkAuthStatus();
@@ -513,7 +571,10 @@ function appData() {
         },
         
         t(key) {
-            return this.translations[this.currentLang][key] || key;
+            if (this.translations && this.translations[key]) {
+                return this.translations[key];
+            }
+            return key;
         },
         
         switchLanguage(lang) {
