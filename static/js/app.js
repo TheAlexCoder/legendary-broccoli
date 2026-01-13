@@ -74,10 +74,11 @@ function appData() {
                     const data = await response.json();
                     this.isLoggedIn = true;
                     this.username = data.username;
-                    this.firedDate = data.fired_date || '';
-                    
+
                     // Check if fired date is not set and show notification
-                    if (!this.firedDate) {
+                    try {
+                        this.firedDate = new Date(data.fired_date).toISOString().split('T')[0]
+                    } catch (error) {
                         this.showNotification(this.t('firedDateNotSet') || 'Please set your fired date in settings.', 'warning');
                     }
                     
