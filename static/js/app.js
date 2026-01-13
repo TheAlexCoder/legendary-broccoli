@@ -274,38 +274,21 @@ function appData() {
             if (!day.isCurrentMonth) return;
             
             try {
-                if (day.checked) {
-                    // Uncheck the day
-                    const response = await fetch('/api/calendar/uncheck', {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            date: day.date.toISOString().split('T')[0]
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        day.checked = false;
-                        await this.loadStats(); // Refresh stats after toggling
-                    }
-                } else {
-                    // Check the day
-                    const response = await fetch('/api/calendar/check', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            date: day.date.toISOString().split('T')[0]
-                        })
-                    });
-                    
-                    if (response.ok) {
-                        day.checked = true;
-                        await this.loadStats(); // Refresh stats after toggling
-                    }
+                let method = day.checked ? 'uncheck' : 'check';
+                // Check/Uncheck the day
+                const response = await fetch(`/api/calendar/${method}`, {
+                    method: day.checked ? 'PUT' : 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        date: day.date.toISOString().split('T')[0]
+                    })
+                });
+                
+                if (response.ok) {
+                    day.checked = !day.checked;
+                    await this.loadStats(); // Refresh stats after toggling
                 }
             } catch (error) {
                 console.error('Error toggling day:', error);
