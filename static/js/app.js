@@ -223,7 +223,6 @@ function appData() {
                         });
                     }
                     
-                    console.log(entriesMap)
                     this.generateCalendarDays(firstDay, lastDay, entriesMap);
                 }
             } catch (error) {
@@ -256,8 +255,6 @@ function appData() {
                     const isCurrentMonth = currentDate.getMonth() === this.currentMonth &&
                                           currentDate.getFullYear() === this.currentYear;
                     
-                    console.log(dateString)
-                    console.log(entriesMap[dateString])
                     const dayObj = {
                         date: currentDate,
                         isCurrentMonth: isCurrentMonth,
